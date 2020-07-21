@@ -31,6 +31,10 @@ button:focus {
     outline: none;
 }
 
+#random-btn:focus {
+    color:red;
+}
+
 .grid {
     display: grid;
     width: 500px;
@@ -44,8 +48,4 @@ button:focus {
 
 .default-color {
     background-color: whitesmoke;
-}
-
-.change-color {
-    background-color: #2d2d2d;
 }
