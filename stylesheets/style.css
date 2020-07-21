@@ -31,7 +31,7 @@ button:focus {
     outline: none;
 }
 
-#random-btn:focus {
+.random-btn-focus {
     color:red;
 }
 

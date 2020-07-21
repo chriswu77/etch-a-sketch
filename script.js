@@ -7,6 +7,7 @@ const resizeBtn = document.getElementById('resize-btn');
 const randomBtn = document.getElementById('random-btn');
 
 let boxArr = [];
+let randomFlag = true;
 
 function createGrid(dimension = 16) {
     grid.setAttribute('style',`grid-template-columns: repeat(${dimension}, 1fr); grid-template-rows: repeat(${dimension}, 1fr)`);
@@ -38,11 +39,22 @@ function changeRandomColor(event) {
     divBox.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
 }
 
-function createRandomGrid() {
-    boxArr.forEach(cur => cur.addEventListener('mouseover', changeRandomColor));
+function createRandomGrid(flag) {
+    flag = randomFlag;
+    if (flag) {
+        boxArr.forEach(cur => cur.addEventListener('mouseover', changeRandomColor));
+        randomBtn.classList.add('random-btn-focus');
+        randomFlag = false;
+    } else {
+        boxArr.forEach(cur => cur.removeEventListener('mouseover', changeRandomColor));
+        boxArr.forEach(cur => cur.addEventListener('mouseover', changeColor));
+        randomBtn.classList.remove('random-btn-focus');
+        randomFlag = true;
+    }
 }
 
 function clearGrid() {
+    randomBtn.classList.remove('random-btn-focus');
     boxArr.forEach(cur => cur.style.backgroundColor = 'whitesmoke');
     boxArr.forEach(cur => cur.removeEventListener('mouseover', changeRandomColor));
     boxArr.forEach(cur => cur.addEventListener('mouseover', changeColor));
@@ -56,6 +68,7 @@ function changeDimensions() {
         grid.innerHTML = '';
         boxArr = [];
         createGrid(dimension);
+        randomBtn.classList.remove('random-btn-focus');
     } else {
         alert('Please enter a valid number');
         changeDimensions();
