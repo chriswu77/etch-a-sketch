@@ -24,14 +24,13 @@ button {
     margin: 0 30px;
     border: 3px solid #2d2d2d;
     border-radius: 5px;
-    /* font-family: 'Gloria Hallelujah', cursive; */
 }
 
 button:focus {
     outline: none;
 }
 
-.random-btn-focus {
+.shaded-btn-focus {
     color:red;
 }
 
@@ -48,4 +47,10 @@ button:focus {
 
 .default-color {
     background-color: whitesmoke;
+}
+
+.rainbow-text {
+    background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
