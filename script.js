@@ -55,6 +55,7 @@ function changeShadedColor(event) {
 
 function createShadedGrid(flag) {
     boxArr.forEach(cur => cur.removeEventListener('mouseover', changeRandomColor));
+    boxArr.forEach(cur => cur.setAttribute('data-count', '0'));
     randomBtn.classList.remove('rainbow-text');
 
     flag = shadedFlag;
